@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Conversor de Moedas</title>
+</head>
+
+<body>
+    <main>
+        <img src="./img/conversor.png" alt="imagem conversor" class="conversor-img">
+        <div class="main-div">
+
+            <label for="convert-from">Converter <span>de</span> </label>
+            <select onchange="mudaDados()" name="convert-from" id="input-from">
+                <option value="BRL">BRL - Real Brasileiro</option>
+                <option value="USD">USD - Dólar Americano</option>
+                <option value="EUR">EUR - Euro</option>
+                <option value="GBP">GBP - Libra Esterlina</option>
+                <option value="CHF">CHF - Franco Suiço</option>
+                <option value="JPY">JPY - Iene Japonês</option>
+                <option value="CNY">CNY - Yuan Chinês</option>
+                <option value="CAD">CAD - Dólar Canadense</option>
+                <option value="AUD">AUD - Dólar Australiano</option>
+            </select>
+
+            <label for="convert-to">Converter <span>para</span> </label>
+            <select onchange="mudaDados()" name="convert-to" id="input-to">
+                <option value="BRL">BRL - Real Brasileiro</option>
+                <option value="USD">USD - Dólar Americano</option>
+                <option value="EUR">EUR - Euro</option>
+                <option value="GBP">GBP - Libra Esterlina</option>
+                <option value="CHF">CHF - Franco Suiço</option>
+                <option value="JPY">JPY - Iene Japonês</option>
+                <option value="CNY">CNY - Yuan Chinês</option>
+                <option value="CAD">CAD - Dólar Canadense</option>
+                <option value="AUD">AUD - Dólar Australiano</option>
+            </select>
+
+            <label for="ammount">Quantidade:</label>
+            <input type="number" name="ammount" id="input-value">
+
+            <button onclick="converter()">Converter</button>
+
+            <div class="result">
+                <div>
+                    <img src="./img/brl.jpg" class="ammount-from" alt="foto origem moeda">
+                    <p class="p-currency-from">BRL - Real Brasileiro</p>
+                    <p class="p-ammount-from">R$10</p>
+                </div>
+                <div>
+                    <img src="./img/seta-para-baixo.png" alt="Foto seta">
+                </div>
+                <div>
+                    <img src="./img/brl.jpg" class="ammount-to" alt="foto destino moeda">
+                    <p class="p-currency-to">BRL - Real Brasileiro</p>
+                    <p class="p-ammount-to">R$10</p>
+                </div>
+
+            </div>
+
+
+        </div>
+    </main>
+
+</body>
+<script src="script.js"></script>
+
+</html>
