@@ -18,7 +18,6 @@ async function converter() {
     let CTo = inputTo.value.toLowerCase()
     let AFrom = inputValue.value
 
-
     const response = await fetch(apiUrl + CFrom + ".json")
     const data = await response.json()
 
@@ -35,118 +34,21 @@ function mudaDados(ValorPara) {
     imgFrom.src = "./img/" + inputFrom.value.toLowerCase() + ".jpg"
     imgTo.src = "./img/" + inputTo.value.toLowerCase() + ".jpg"
 
-
-    switch (inputFrom.value) {
-        case "BRL":
-            currencyFrom.innerHTML = inputFrom.selectedOptions[0].text;
-            ammountFrom.innerHTML = "R$" + inputValue.value
-            break
-
-        case "USD":
-            currencyFrom.innerHTML = inputFrom.selectedOptions[0].text;
-            ammountFrom.innerHTML = "US$" + inputValue.value
-            break
-
-        case "EUR":
-            currencyFrom.innerHTML = inputFrom.selectedOptions[0].text;
-            ammountFrom.innerHTML = "€" + inputValue.value
-            break
-
-        case "GPD":
-            currencyFrom.innerHTML = inputFrom.selectedOptions[0].text;
-            ammountFrom.innerHTML = "£" + inputValue.value
-            break
-
-        case "CHF":
-            currencyFrom.innerHTML = inputFrom.selectedOptions[0].text;
-            ammountFrom.innerHTML = "Fr." + inputValue.value
-            break
-
-        case "JPY":
-            currencyFrom.innerHTML = inputFrom.selectedOptions[0].text;
-            ammountFrom.innerHTML = "¥" + inputValue.value
-            break
-
-        case "CNY":
-            currencyFrom.innerHTML = inputFrom.selectedOptions[0].text;
-            ammountFrom.innerHTML = "¥" + inputValue.value
-            break
-
-        case "CAD":
-            currencyFrom.innerHTML = inputFrom.selectedOptions[0].text;
-            ammountFrom.innerHTML = "CA$" + inputValue.value
-            break
-
-        case "AUD":
-            currencyFrom.innerHTML = inputFrom.selectedOptions[0].text;
-            ammountFrom.innerHTML = "AU$" + inputValue.value
-            break
-
-        default:
-            currencyFrom.innerHTML = inputFrom.selectedOptions[0].text;
-            ammountFrom.innerHTML = "R$" + inputValue.value
-
-    }
+    currencyFrom.innerHTML = inputFrom.selectedOptions[0].text;
+    ammountFrom.innerHTML = format(inputFrom.value, inputValue.value)
 
     if (ValorPara != undefined) {
-        switch (inputTo.value) {
-            case "BRL":
-                currencyTo.innerHTML = inputTo.selectedOptions[0].text;
-                ammountTo.innerHTML = "R$" + ValorPara
-                break
-
-            case "USD":
-                currencyTo.innerHTML = inputTo.selectedOptions[0].text;
-                ammountTo.innerHTML = "US$" + ValorPara
-                break
-
-            case "EUR":
-                currencyTo.innerHTML = inputTo.selectedOptions[0].text;
-                ammountTo.innerHTML = "€" + ValorPara
-                break
-
-            case "GPD":
-                currencyTo.innerHTML = inputTo.selectedOptions[0].text;
-                ammountTo.innerHTML = "£" + ValorPara
-                break
-
-            case "CHF":
-                currencyTo.innerHTML = inputTo.selectedOptions[0].text;
-                ammountTo.innerHTML = "Fr." + ValorPara
-                break
-
-            case "JPY":
-                currencyTo.innerHTML = inputTo.selectedOptions[0].text;
-                ammountTo.innerHTML = "¥" + ValorPara
-                break
-
-            case "CNY":
-                currencyTo.innerHTML = inputTo.selectedOptions[0].text;
-                ammountTo.innerHTML = "¥" + ValorPara
-                break
-
-            case "CAD":
-                currencyTo.innerHTML = inputTo.selectedOptions[0].text;
-                ammountTo.innerHTML = "CA$" + ValorPara
-                break
-
-            case "AUD":
-                currencyTo.innerHTML = inputTo.selectedOptions[0].text;
-                ammountTo.innerHTML = "AU$" + ValorPara
-                break
-
-            default:
-                currencyTo.innerHTML = inputTo.selectedOptions[0].text;
-                ammountTo.innerHTML = "R$" + ValorPara
-
-        }
-
-    }else{
-
-        ammountFrom.innerHTML = 0
-
         currencyTo.innerHTML = inputTo.selectedOptions[0].text;
-        ammountTo.innerHTML = 0
+        ammountTo.innerHTML = format(inputTo.value, ValorPara);
+
+    } else {
+        ammountFrom.innerHTML = format(inputFrom.value, 0)
+        currencyTo.innerHTML = inputTo.selectedOptions[0].text;
+        ammountTo.innerHTML = format(inputTo.value, 0)
     }
 
+}
+
+function format(currency, value) {
+    return new Intl.NumberFormat('pt-BR', { style: 'currency', currency: currency }).format(value)
 }
