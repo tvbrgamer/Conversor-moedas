@@ -112,7 +112,7 @@ O layout é totalmente adaptado para dispositivos móveis, incluindo:
 Clone o repositório:
 
 ```bash
-git clone https://github.com/seu-usuario/seu-repositorio.git
+git clone https://github.com/tvbrgamer/Conversor-moedas.git
 ```
 
 Abra o arquivo:
