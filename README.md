@@ -107,17 +107,6 @@ O layout é totalmente adaptado para dispositivos móveis, incluindo:
 
 ---
 
-## 🔮 Melhorias Futuras
-
-* Adicionar loading spinner durante requisição
-* Implementar tratamento de erros da API
-* Histórico de conversões
-* Dark mode
-* Testes automatizados
-* Deploy online (Netlify / Vercel)
-
----
-
 ## ▶️ Como Executar
 
 Clone o repositório:
